@@ -93,4 +93,4 @@ The application follows the MVVM pattern using the CommunityToolkit framework. T
 - **Views**: XAML UI elements bound to ViewModels.
 
 ## License
-This project is open-source and available under the MIT License.
+This project is open-source.
