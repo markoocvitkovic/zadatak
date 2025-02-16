@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:workStationManager.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="workStationManager.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="workStationManager">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+   <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="{Binding FullName}" FontSize="20" HorizontalAlignment="Center"/>
+            <TextBlock Text="Work Positions:" FontSize="16" Margin="0,10,0,0"/>
+            <ListBox ItemsSource="{Binding WorkPositions}" Width="200" Height="100"/>
+        </StackPanel>
+        <Grid Grid.Row="3">
+          <Button Content="Logout"
+               Command="{Binding LogoutCommand}"
+               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+               Margin="10"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               Width="200"/>
+        </Grid>
+    </Grid>
+</Window>
